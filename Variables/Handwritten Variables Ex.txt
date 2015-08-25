@@ -1,0 +1,26 @@
+Handwritten Exercise Variables
+
+1 a) 0.66 + 0.6
+2 b) 3
+3 c)
+4 d) 12.5
+5 e) 12.5
+6 f) 12.5
+7 g) 36.375
+8 h) 36.375
+9 i) This is not a valid statement because the first part of the statement equals 0 and it can happen an infinite amount of time.
+
+Value names
+
+1. a) avgh
+2. b) tro
+3. c) trb
+4, d) Tc
+
+Data Types
+
+1 a) integer 
+2.b) float
+3.c) float
+4.d) integer
+5 e) string
