@@ -13,7 +13,6 @@ understanding of C++ programming constructs, classes, functions and data structu
 #include <iostream>
 #include <string>
 #include "Map.h"
-#include <cstdlib>
 using namespace std;
 //class resembling player
 class Player
@@ -25,15 +24,15 @@ public:
 
 	int GetPosX();  //position x
 	int GetPosY();  //position y
-	int ammo;
-	void SetPos(int a_x,int a_y); //sets position  for player
+
+	void SetPos(int a_px,int a_py); //sets position  for player
 	bool Shoot(); //enables player to shoot
 	void Move();  
 	void Start();
 	void Satchel();
-	void fWife(int &a_wX, int &a_wY);
+	void fWife(int &a_rfX, int &a_rfY);
 	bool Victory();
-
+	
 	//private data set for Player
 private:
 

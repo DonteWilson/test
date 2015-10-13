@@ -13,7 +13,9 @@ class Map
 {
 //public data set for map
 public:
+	//Constructor for Map
 	Map();
+	//Deconstructor for Map
 	~Map();
 
 	void generateMap();

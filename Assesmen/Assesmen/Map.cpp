@@ -15,6 +15,7 @@ Map::~Map()
 {
 
 }
+//Creates grid for player to roam and explore the 4x4 grid.
 void Map::generateMap()
 {
 	Cell iCell;
@@ -35,7 +36,7 @@ void Map::generateMap()
 	{
 		int x = i % temp2;
 
-		Map[i] = iCell.dCell(x, y);
+		Map[i] = iCell.dCell(y, x);
 
 		if (x == temp2 - 1)
 		{
@@ -68,10 +69,10 @@ void Map::generateMap()
 		}
 		File.close();
 	}
-	delete[]Map;
+	delete[] Map;
 
 }
-
+//Generates the map file from Map.txt and displays it onto the screen
 void Map::generateMapfile()
 {
 	string f;
@@ -79,7 +80,7 @@ void Map::generateMapfile()
 	ifstream File;
 
 	File.open("Map.txt", ios_base::in);
-
+	//If file fails to open then it will display the text represented in the cout.
 	if (File.fail())
 	{
 		cout << "File Failed to Open\n";
@@ -96,13 +97,13 @@ void Map::generateMapfile()
 
 	File.close();
 }
-
+//prints game contents that prompts player to chose the direction he wants to go in.
 void Map::PrintContents()
 {
 	Player Eric;
 
 	system("cls");
-
+	//Generates map file above 2 
 	generateMapfile();
 	cout <<"Where do you want to move?\n";
 	cout <<"Move North: W\n";

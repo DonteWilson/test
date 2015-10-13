@@ -15,6 +15,7 @@ using namespace std;
 
 int main()
 {
+	//Boolean to state if the game is able to begin.
 	bool isDone = true;
 	Player pPlayer;
 	Map mMap;
@@ -33,4 +34,5 @@ int main()
 	system("Pause");
 	return 0;
 }
+
 

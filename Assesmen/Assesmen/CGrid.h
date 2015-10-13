@@ -15,15 +15,15 @@ public:
 	~Cell();
 
 	//Identifies current position of player
-	Cell dCell(int m_x,int m_y);
+	Cell dCell(int a_px,int a_py);
 
 	int GetPosX();
 	int GetPosY();
 
 	bool GetAlive();
 	
-	void SetPos(int a_x, int a_y);
-	void sAlive(bool s_a);
+	void SetPos(int a_px, int a_py);
+	void sAlive(bool a_l);
 	void Mine(int a_x, int a_y);
 	void Theif(Player &a_rfplayer, int a_x, int a_y);
 	void Wife(Player &a_rfplayer, int a_x, int a_y);

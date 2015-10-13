@@ -33,11 +33,11 @@ int Player::GetPosY()
 	return m_y;
 }
 //Sets the position for the player
-void Player::SetPos(int a_x, int a_y)
+void Player::SetPos(int a_px, int a_py)
 {
-	m_x = a_x;
+	m_x = a_px;
 
-	m_y = a_y;
+	m_y = a_py;
 }
 //Function that enables the player to move around the map
 void Player::Move()
@@ -50,8 +50,10 @@ void Player::Move()
 	cout << endl;
 
 	cin >> uInput;
+	//switch statement for the choices the character makes to move.
 	switch (uInput)
 	{
+		//Actions that would happen if player where to move with w. The program will notify the player  if he cant go in that direction.
 	case 'w':
 	{
 		SetPos(m_x, m_y - 1);
@@ -73,6 +75,7 @@ void Player::Move()
 		cout << "Current Position:" << GetPosY() << ',' << GetPosX() << endl;	
 		break;
 	}
+	//Actions  that would happen if player chose to hit s. The program will notify the player if he cant go in that direction.
 	case 's':
 	{
 		SetPos(m_x, m_y + 1);
@@ -91,6 +94,7 @@ void Player::Move()
 		cout <<"Current Position:" << GetPosY() << ',' << GetPosX() << endl;
 		break;
 	}
+	//Actions that would happen if player chose to hit a. The program will notify the player if he cant go in that direction.
 	case 'a':
 	{
 		SetPos(m_x - 1, m_y);
@@ -107,6 +111,7 @@ void Player::Move()
 		cout <<"Current Position:" << GetPosY() << ',' << GetPosX() << endl;
 		break;
 	}
+	//Actions that would happen if the player chose to hit d. The program will notify the player if he cant go in that direction.
 	case 'd':
 	{
 		SetPos(m_x + 1, m_y);
@@ -123,6 +128,7 @@ void Player::Move()
 		cout <<"Current Position:" << GetPosY() << ',' << GetPosX() << endl;
 		break;
 	}
+	//Actions that would happen if the player chose to hit Q. This will be the action to attack the theif.
 	case 'q':
 	{
 		Shoot();
@@ -135,8 +141,9 @@ void Player::Move()
 	}
 	};
 }
+//a boolean that displays if the theif is alive or not.
 bool a_Theif = true;
-
+//Functions that idenitfies if the player managed to kill the theif.
 bool Player::Shoot()
 {
 	Cell Theif;
@@ -151,19 +158,20 @@ bool Player::Shoot()
 		(GetPosX() == 2 && GetPosY() == 3) &&
 		(Theif.GetAlive() == true) && (iCase[0].iAmount == 1)))))
 	{
+		//Theif alive equals false.
 		a_Theif = false;
 
 		iCase[0].iAmount--;
 
 		mMap.PrintContents();
 
-
-		cout << "You 360 no scope the theif\n";
-
-
-		
+		//Indication of killing the theif.
+		cout << "You shot the theif.\n";
 	}
+	return a_Theif;
+
 }
+//Function that displays player inventory 
 void Player::Satchel()
 {
 	cout << "Items on Satchel:\n";
@@ -173,6 +181,7 @@ void Player::Satchel()
 		cout << iCase[i].iName <<" x "<< iCase[1].iAmount << endl;
 	}
 }
+//prompts the user to the start screen and informs the user if he wants to continue or not.
 void Player::Start()
 {
 	Map mMap;
@@ -196,6 +205,7 @@ void Player::Start()
 		exit(1);
 	}
 }
+//Function that identifies the location of the players wife and then notifies the player that he has found his wife.
 void Player::fWife(int &a_rfX, int &a_rfY)
 {
 	Map mMap;
@@ -207,6 +217,7 @@ void Player::fWife(int &a_rfX, int &a_rfY)
 		cout << "You've located your Wife :)\n";
 	}
 }
+//A boolean statement that identifies if the player made it back to position 0,0 with his wife.
 bool Player::Victory()
 {
 	bool dVictory = true;
