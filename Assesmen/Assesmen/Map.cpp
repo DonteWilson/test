@@ -10,7 +10,7 @@ Map::Map()
 	
 
 }
-//Deconstructor for Map function
+//Destructor for Map function
 Map::~Map()
 {
 
@@ -19,16 +19,17 @@ Map::~Map()
 void Map::generateMap()
 {
 	Cell iCell;
-
+	//Sets Temp variable to equal 4
 	int Temp = 4;
-
+	//Sets size Temp times Temp which will euqal 16.
 	int Size = Temp * Temp;
-
+	//Creates a pointer for Map
 	Cell *Map;
-
+	//Sets the map pointer to a new allocated array of memory
 	Map = new Cell[Size];
-
+	//Makes temp2 the square root of the size variable.
 	int temp2 = sqrt(Size);
+	//Sets y to the value of 0d
 	
 	int y = 0;
 
@@ -43,7 +44,7 @@ void Map::generateMap()
 			y++;
 		}
 	}
-
+	//Creates a string called f. The f represents File.
 	string f;
 	
 	ofstream File;
@@ -58,6 +59,7 @@ void Map::generateMap()
 	{
 		for (int i = 0; i < Size; ++i)
 		{
+			//Gives the map its values
 			int x = i % temp2;
 
 			File << Map[i].GetPosY() << "," << Map[i].GetPosX() << "";
@@ -67,14 +69,17 @@ void Map::generateMap()
 				File << endl;
 			}
 		}
+		//closes the file
 		File.close();
 	}
+	//removes the allocated memory
 	delete[] Map;
 
 }
 //Generates the map file from Map.txt and displays it onto the screen
 void Map::generateMapfile()
 {
+	//Creates a string called f representing File.
 	string f;
 
 	ifstream File;
@@ -83,6 +88,7 @@ void Map::generateMapfile()
 	//If file fails to open then it will display the text represented in the cout.
 	if (File.fail())
 	{
+		//Displays on to screen if file failed to open correctly.
 		cout << "File Failed to Open\n";
 	}
 	else
@@ -94,17 +100,18 @@ void Map::generateMapfile()
 		}
 	}
 	cout << endl;
-
+	//Closes the File if it failed to open/
 	File.close();
 }
 //prints game contents that prompts player to chose the direction he wants to go in.
 void Map::PrintContents()
 {
-	Player Eric;
+	Player pPlayer;
 
 	system("cls");
 	//Generates map file above 2 
 	generateMapfile();
+	//Prompts the user chose a location to move in.
 	cout <<"Where do you want to move?\n";
 	cout <<"Move North: W\n";
 	cout <<"Move South: S\n";
@@ -112,5 +119,5 @@ void Map::PrintContents()
 	cout <<"Move West: A\n";
 	cout <<"Fire Bullet: Q\n\n";
 
-	Eric.Satchel();
+	pPlayer.Satchel();
 }

@@ -19,7 +19,9 @@ class Player
 {
 	//public data set for Player
 public:
+	//Constructor for Player
 	Player();
+	//Destructor for Player
 	~Player();
 
 	int GetPosX();  //position x
@@ -27,16 +29,17 @@ public:
 
 	void SetPos(int a_px,int a_py); //sets position  for player
 	bool Shoot(); //enables player to shoot
-	void Move();  
-	void Start();
-	void Satchel();
+	void Move(); //enables movement for the player 
+	void Start(); //Function that starts the game for the player
+	void Satchel(); //enables the player to have an inventory.
 	void fWife(int &a_rfX, int &a_rfY);
-	bool Victory();
+	bool Victory(); //Decides if the player has successfully obtained the objective and brought it back safely.
 	
 	//private data set for Player
 private:
-
+	//private variable for m_x
 	int m_x;
+	//private variable for m_y
 	int m_y;
 
 };

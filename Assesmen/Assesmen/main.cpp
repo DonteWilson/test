@@ -15,22 +15,26 @@ using namespace std;
 
 int main()
 {
-	//Boolean to state if the game is able to begin.
+	//Forms a boolean that is true
 	bool isDone = true;
 	Player pPlayer;
 	Map mMap;
 
 	mMap.generateMapfile();
+	//Asks the user if he/she wishes to begin playing the game.
 	pPlayer.Start();
+	//Displays content such as inventory and the players current location on the map
 	mMap.PrintContents();
 	cout <<"Current Position: " << pPlayer.GetPosX() << ',' << pPlayer.GetPosY();
-
+	//while the bool isDone is true. The player is victorious
 	while (isDone == true)
 	{
+		//Keeps track of player movement.
 		pPlayer.Move();
-
+		//Checks to see if player has completed objective and will not reedeem player victorious if objective has not been completed.
 		isDone = pPlayer.Victory();
 	}
+	//pauses the system.
 	system("Pause");
 	return 0;
 }
