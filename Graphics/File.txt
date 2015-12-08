@@ -1,0 +1,3 @@
+Hour = 60 minutes
+Minute = 60 seconds
+Second(s) = whats left over
